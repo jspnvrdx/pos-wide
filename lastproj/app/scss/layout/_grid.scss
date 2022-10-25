@@ -1,0 +1,51 @@
+@forward "../globals/colors";
+@use '../util/index' as u;
+
+.grid {
+  display: grid;
+  margin: 2rem auto auto;
+  grid-template-rows: auto;
+  gap: 5rem;
+
+  &__logo,
+  &__login {
+    margin: auto;
+  }
+
+  &__login {
+    background-color: var(--theme-color);
+    width: 25rem;
+    border-radius: 23px;
+    height: 15rem;
+
+    form {
+      display: grid;
+      gap: 1rem;
+      max-width: 20rem;
+      text-align: center;
+      margin: 2rem auto;
+
+      input,
+      button {
+        border-radius: 55px;
+        height: 2rem;
+        font-size: medium;
+        text-align: center;
+        border: none;
+      }
+
+      input {
+        background: #f2eeff;
+      }
+
+      button {
+        background: black;
+        color: white;
+      }
+
+      a{
+        color: black;
+      }
+    }
+  }
+}
