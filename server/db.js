@@ -1,6 +1,6 @@
-const pg = require('pg')
+const Pool = require('pg').Pool
 
-const pool = new pg.Client({
+const pool = new Pool({
   host: 'localhost',
   user: 'postgres',
   port: 5432,
@@ -8,4 +8,4 @@ const pool = new pg.Client({
   database: 'pos-wide'
 })
 
-export default pool
+module.exports = pool
