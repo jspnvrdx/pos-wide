@@ -1,16 +1,28 @@
-const express = require('express')
-const app = express()
-const cors = require('cors')
+const express = require("express");
+const app = express();
+const cors = require("cors");
 
-const PORT = 8000
+const PORT = 8000;
 // * middleware
-app.use(express.json())
-app.use(cors())
-
+app.use(express.json());
+app.use(cors());
 
 // Register and login routes
-app.use('/auth', require('./routes/jwtAuth'))
+app.use("/auth", require("./routes/jwtAuth"));
+
+// Dashboard
+app.use("/dashboard", require("./routes/Dashboard"));
+
+// POS
+
+// Users
+
+// Inventory
+
+// Sales report
+
+// Widget
 
 app.listen(PORT, () => {
-  console.log(`Server is running on ${PORT}`)
-})
+  console.log(`Server is running on ${PORT}`);
+});
