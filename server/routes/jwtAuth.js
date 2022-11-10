@@ -5,6 +5,7 @@ const jwtGenerator = require("../utils/jwtGenerator");
 const validinfo = require("../middleware/validinfo");
 const authorization = require("../middleware/authorization");
 
+//  Register route
 router.post("/register", validinfo, async (req, res) => {
   try {
     const { username, password, firstName, lastName, questionId } = req.body;
@@ -16,7 +17,7 @@ router.post("/register", validinfo, async (req, res) => {
 
     // check if user exist
     if (user.rows.length !== 0) {
-      return res.status(401).send("User already exist!");
+      return res.status(401).json("User already exist!");
     }
 
     // encrypting user's password
@@ -60,6 +61,7 @@ router.post("/login", validinfo, async (req, res) => {
 
     const validPassword = await bcrypt.compare(password, user.rows[0].password);
 
+    // ! For debugging, remove before publish
     console.log(validPassword);
 
     if (!validPassword) {
