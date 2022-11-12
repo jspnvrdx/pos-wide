@@ -1,0 +1,23 @@
+.container,
+input {
+  text-align: center;
+}
+form {
+  display: grid;
+  width: 40%;
+  margin: auto;
+  row-gap: 5vh;
+}
+form input {
+  border: solid 1px;
+  border-radius: 55px;
+}
+form button {
+  border: none;
+  border-radius: 55px;
+}
+form input,
+form button {
+  padding: 10px;
+  font-size: large;
+}
