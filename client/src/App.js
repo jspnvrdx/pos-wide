@@ -6,6 +6,11 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+//* Fonts
+import "@fontsource/inder";
 
 // Components
 import Login from "./components/Login";
@@ -52,6 +57,11 @@ function App() {
           <Route exact path="/dashboard" element={checkDashboard()} />
         </Routes>
       </Router>
+      <ToastContainer
+        position={toast.POSITION.BOTTOM_RIGHT}
+        theme={"dark"}
+        newestOnTop
+      />
     </>
   );
 }

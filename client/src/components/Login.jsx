@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+// import { Typography } from "@mui/material";
 
-// images
+//* images
 import Logo from "./images/logo-small.svg";
+
+// * styles
+import "../styles/login.css";
+
+// * ----------------------------------------
 
 const Login = ({ setAuth }) => {
   const [inputs, setInputs] = useState({
@@ -40,7 +47,11 @@ const Login = ({ setAuth }) => {
         localStorage.setItem("token", parseRes.token);
 
         setAuth(true);
+
+        // TODO: Modiify notification
+        toast.success("Login Succesfully!");
       } else {
+        toast.warn(parseRes);
         setAuth(false);
       }
     } catch (err) {
@@ -54,23 +65,25 @@ const Login = ({ setAuth }) => {
     <>
       <div className="container">
         <img src={Logo} alt="POS-WIDE" />
-        <form onSubmit={formSubmit}>
-          <input
-            type="text"
-            name="username"
-            placeholder="username"
-            value={username}
-            onChange={(e) => handleOnchange(e)}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="password"
-            value={password}
-            onChange={(e) => handleOnchange(e)}
-          />
-          <button>Login</button>
-        </form>
+        <div className="login">
+          <form onSubmit={formSubmit}>
+            <input
+              type="text"
+              name="username"
+              placeholder="username"
+              value={username}
+              onChange={(e) => handleOnchange(e)}
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="password"
+              value={password}
+              onChange={(e) => handleOnchange(e)}
+            />
+            <button>Login</button>
+          </form>
+        </div>
         <Link to={"/register"}>REGISTER</Link>
       </div>
     </>

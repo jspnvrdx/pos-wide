@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { toast } from "react-toastify";
 // images
 import Logo from "./images/logo-small.svg";
 
@@ -40,6 +40,9 @@ const Register = ({ setAuth }) => {
       if (parseRes.token) {
         localStorage.setItem("token", parseRes.token);
         setAuth(true);
+        toast.success("Registered!");
+      } else {
+        toast.warn(parseRes);
       }
     } catch (err) {
       console.error(err.message);
