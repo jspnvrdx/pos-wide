@@ -6,9 +6,6 @@ import { toast, ToastContainer } from "react-toastify";
 //* images
 import Logo from "./images/logo-small.svg";
 
-// * styles
-import "../styles/login.css";
-
 // * ----------------------------------------
 
 const Login = ({ setAuth }) => {
