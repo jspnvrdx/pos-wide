@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
-// import { Typography } from "@mui/material";
+import { toast } from "react-toastify";
 
+//* MUI Components
+import { Container, TextField, Input } from "@mui/material";
+import { red } from "@mui/material/colors";
 //* images
 import Logo from "./images/logo-small.svg";
 
@@ -60,29 +62,37 @@ const Login = ({ setAuth }) => {
 
   return (
     <>
-      <div className="container">
+      <Container maxWidth="sm">
         <img src={Logo} alt="POS-WIDE" />
         <div className="login">
-          <form onSubmit={formSubmit}>
-            <input
-              type="text"
-              name="username"
-              placeholder="username"
-              value={username}
-              onChange={(e) => handleOnchange(e)}
-            />
-            <input
-              type="password"
-              name="password"
-              placeholder="password"
-              value={password}
-              onChange={(e) => handleOnchange(e)}
-            />
-            <button>Login</button>
-          </form>
+          <Container sx={{ bgcolor: red[400] /* , borderRadius: "20px" */ }}>
+            <form onSubmit={formSubmit}>
+              {/* <input
+                type="text"
+                name="username"
+                placeholder="username"
+                value={username}
+                onChange={(e) => handleOnchange(e)}
+              /> */}
+              <Input
+                name="username"
+                value={username}
+                inputProps={{ placeholder: "Username" }}
+                onChange={(e) => handleOnchange(e)}
+              />
+              <Input
+                type="password"
+                name="password"
+                value={password}
+                inputProps={{ placeholder: "Password" }}
+                onChange={(e) => handleOnchange(e)}
+              />
+              <button>Login</button>
+            </form>
+          </Container>
         </div>
         <Link to={"/register"}>REGISTER</Link>
-      </div>
+      </Container>
     </>
   );
 };
