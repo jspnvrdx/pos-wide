@@ -1,2 +1,1 @@
-# StackTrek-Capstone-repo
- StackTreck Bootcamp Capstone Project
+# POS-WIDE | Point of sales Web system
