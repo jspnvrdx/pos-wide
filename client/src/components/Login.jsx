@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 //* MUI Components
-import { Container, TextField, Input } from "@mui/material";
+import { Container, Input } from "@mui/material";
 import { red } from "@mui/material/colors";
+import Grid2 from "@mui/material/Unstable_Grid2";
+
 //* images
 import Logo from "./images/logo-small.svg";
 
