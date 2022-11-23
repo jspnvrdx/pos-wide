@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 //* MUI Components
 import { Container, Input } from "@mui/material";
 import { red } from "@mui/material/colors";
-import Grid2 from "@mui/material/Unstable_Grid2";
+import Stack from "@mui/material/Stack";
 
 //* images
 import Logo from "./images/logo-small.svg";
@@ -64,35 +64,43 @@ const Login = ({ setAuth }) => {
 
   return (
     <>
-      <Container maxWidth="sm">
+      <Container maxWidth="sm" sx={{ textAlign: "center" }}>
         <img src={Logo} alt="POS-WIDE" />
-        <div className="login">
-          <Container sx={{ bgcolor: red[400] /* , borderRadius: "20px" */ }}>
-            <form onSubmit={formSubmit}>
-              {/* <input
-                type="text"
-                name="username"
-                placeholder="username"
-                value={username}
-                onChange={(e) => handleOnchange(e)}
-              /> */}
-              <Input
-                name="username"
-                value={username}
-                inputProps={{ placeholder: "Username" }}
-                onChange={(e) => handleOnchange(e)}
-              />
-              <Input
-                type="password"
-                name="password"
-                value={password}
-                inputProps={{ placeholder: "Password" }}
-                onChange={(e) => handleOnchange(e)}
-              />
-              <button>Login</button>
+
+        <Container sx={{ bgcolor: red[400], borderRadius: "20px" }}>
+          <Container sx={{ margin: "20px 0" }}>
+            <form onSubmit={formSubmit} margin={"10px 0"}>
+              <Stack
+                direction="column"
+                justifyContent={"center"}
+                alignItems="center"
+                spacing={4}
+              >
+                <Input
+                  name="username"
+                  value={username}
+                  inputProps={{ placeholder: "Username" }}
+                  onChange={(e) => handleOnchange(e)}
+                  sx={{
+                    input: { textAlign: "center" },
+                  }}
+                />
+                <Input
+                  type="password"
+                  name="password"
+                  value={password}
+                  inputProps={{ placeholder: "Password" }}
+                  onChange={(e) => handleOnchange(e)}
+                  sx={{
+                    input: { textAlign: "center" },
+                  }}
+                />
+                <button>Login</button>
+              </Stack>
             </form>
           </Container>
-        </div>
+        </Container>
+
         <Link to={"/register"}>REGISTER</Link>
       </Container>
     </>
