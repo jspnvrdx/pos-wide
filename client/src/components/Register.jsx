@@ -20,7 +20,7 @@ const Register = ({ setAuth }) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
   };
 
-  console.log(inputs);
+  // console.log(inputs);
 
   const formSubmit = async (e) => {
     e.preventDefault();
