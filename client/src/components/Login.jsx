@@ -3,12 +3,15 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 //* MUI Components
-import { Container, Input } from "@mui/material";
+import { Container, Input, TextField } from "@mui/material";
 import { red } from "@mui/material/colors";
 import Stack from "@mui/material/Stack";
 
 //* images
 import Logo from "./images/logo-small.svg";
+
+// * styles
+import "./styles/styles.css";
 
 // * ----------------------------------------
 
@@ -67,32 +70,51 @@ const Login = ({ setAuth }) => {
       <Container maxWidth="sm" sx={{ textAlign: "center" }}>
         <img src={Logo} alt="POS-WIDE" />
 
-        <Container sx={{ bgcolor: red[400], borderRadius: "20px" }}>
+        <Container
+          sx={{ bgcolor: red[400], borderRadius: "20px", padding: "20px" }}
+        >
           <Container sx={{ margin: "20px 0" }}>
-            <form onSubmit={formSubmit} margin={"10px 0"}>
+            <form onSubmit={formSubmit} style={{ paddingTop: "10px" }}>
               <Stack
                 direction="column"
                 justifyContent={"center"}
                 alignItems="center"
                 spacing={4}
               >
-                <Input
+                <TextField
+                  fullWidth
+                  className="roundedInput"
+                  label="username"
                   name="username"
                   value={username}
-                  inputProps={{ placeholder: "Username" }}
                   onChange={(e) => handleOnchange(e)}
                   sx={{
-                    input: { textAlign: "center" },
+                    backgroundColor: "white",
+                    "& .MuiInputBase-root": {
+                      "& input": {
+                        textAlign: "center",
+                      },
+                    },
                   }}
                 />
-                <Input
+                <TextField
+                  fullWidth
+                  label="password"
+                  className="roundedInput"
                   type="password"
                   name="password"
                   value={password}
-                  inputProps={{ placeholder: "Password" }}
                   onChange={(e) => handleOnchange(e)}
                   sx={{
-                    input: { textAlign: "center" },
+                    backgroundColor: "white",
+                    "& .MuiInputBase-root": {
+                      "& input": {
+                        textAlign: "center",
+                      },
+                    },
+                    // "& .MuiInputLabel-outlined": {
+                    //   textAlign: "center",
+                    // },
                   }}
                 />
                 <button>Login</button>
