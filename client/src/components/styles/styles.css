@@ -1,0 +1,4 @@
+.roundedInput .MuiOutlinedInput-root,
+.MuiTextField-root {
+  border-radius: 50px;
+}
